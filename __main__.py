@@ -7,13 +7,15 @@ verbose = False
 
 
 if __name__ == "__main__":
-    parser = ArgumentParser()
+    parser = ArgumentParser(
+        prog="projectorpi", description="A tool that turns the projector on and off."
+    )
 
     parser.add_argument(
         "-v", "--verbose", action="store_true", help="increase output verbosity"
     )
 
-    sleep_or_wake = parser.add_mutually_exclusive_group()
+    sleep_or_wake = parser.add_mutually_exclusive_group(required=True)
     sleep_or_wake.add_argument(
         "input",
         nargs="?",
