@@ -28,8 +28,8 @@ if __name__ == "__main__":
 
     verbose = args.verbose
 
-    proj = ProjectorSerial()
-    extr = ExtronSerial()
+    proj = ProjectorSerial(verbose)
+    extr = ExtronSerial(verbose)
 
     if args.input:
         proj.power_on()

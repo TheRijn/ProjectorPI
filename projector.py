@@ -11,14 +11,12 @@ class ProjectorSerial(SerialDevice):
 
         super().__init__(serial_port, baudrate, verbose)
 
-    def send_command(
-        self, command: str, verbose: bool = False, device_id: str = "ZZ"
-    ) -> str:
+    def send_command(self, command: str, device_id: str = "ZZ") -> str:
         assert device_id in ["01", "02", "03", "04", "05", "06", "ZZ"]
 
         full_command = f"\x02AD{device_id};{command}\x03"
 
-        return super().send_command(full_command, verbose)
+        return super().send_command(full_command)
 
     def power_on(self) -> None:
         self.send_command("PON")

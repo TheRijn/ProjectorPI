@@ -36,8 +36,8 @@ class ExtronSerial(SerialDevice):
         baudrate = 9600
         super().__init__(serial_port, baudrate, verbose)
 
-    def send_command(self, command: str, verbose: bool = False) -> str:
-        response = super().send_command(command, verbose)
+    def send_command(self, command: str) -> str:
+        response = super().send_command(command)
 
         if response[0] == "E":
             print(response, self.ERRORS.get(response, "Unknown"))

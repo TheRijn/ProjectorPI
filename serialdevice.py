@@ -10,11 +10,10 @@ class SerialDevice:
         self.baudrate = baudrate
         self.verbose = verbose
 
-    def send_command(self, command: str, verbose: bool = False) -> str:
-        verbose = verbose or self.verbose
+    def send_command(self, command: str) -> str:
 
         with Serial(self.serial_port, self.baudrate, timeout=1) as s:
-            if verbose:
+            if self.verbose:
                 print("Send:", command)
 
             s.write(command.encode())
@@ -30,7 +29,7 @@ class SerialDevice:
             else:
                 response = ""
 
-            if verbose:
+            if self.verbose:
                 print("Resp:", response)
             if not response:
                 print("No response")
