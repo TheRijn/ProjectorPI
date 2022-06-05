@@ -36,6 +36,8 @@ class ExtronSerial(SerialDevice):
         baudrate = 9600
         super().__init__(serial_port, baudrate, verbose)
 
+        self.prefix = "Extron   "
+
     def send_command(self, command: str) -> str:
         response = super().send_command(command)
 

@@ -11,6 +11,8 @@ class ProjectorSerial(SerialDevice):
 
         super().__init__(serial_port, baudrate, verbose)
 
+        self.prefix = "Projector"
+
     def send_command(self, command: str, device_id: str = "ZZ") -> str:
         assert device_id in ["01", "02", "03", "04", "05", "06", "ZZ"]
 
