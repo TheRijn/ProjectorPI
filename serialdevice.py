@@ -7,7 +7,7 @@ class SerialDevice:
         self.serial_port: str = serial_port
         self.baudrate = baudrate
 
-    def send_command(self, command: str, verbose: bool = False):
+    def send_command(self, command: str, verbose: bool = False) -> str:
         with Serial(self.serial_port, self.baudrate, timeout=1) as s:
             if verbose:
                 print("Send:", command)
