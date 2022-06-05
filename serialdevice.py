@@ -3,11 +3,16 @@ from serial import Serial
 
 
 class SerialDevice:
-    def __init__(self, serial_port: str, baudrate: int = 9600) -> None:
+    def __init__(
+        self, serial_port: str, baudrate: int = 9600, verbose: bool = False
+    ) -> None:
         self.serial_port: str = serial_port
         self.baudrate = baudrate
+        self.verbose = verbose
 
     def send_command(self, command: str, verbose: bool = False) -> str:
+        verbose = verbose or self.verbose
+
         with Serial(self.serial_port, self.baudrate, timeout=1) as s:
             if verbose:
                 print("Send:", command)

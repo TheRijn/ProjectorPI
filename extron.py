@@ -31,10 +31,10 @@ class ExtronSerial(SerialDevice):
     # w == escape
     # | == carriage return
 
-    def __init__(self) -> None:
+    def __init__(self, verbose: bool = False) -> None:
         serial_port = "/dev/serial/by-id/usb-Extron_Product-if00"
         baudrate = 9600
-        super().__init__(serial_port, baudrate)
+        super().__init__(serial_port, baudrate, verbose)
 
     def send_command(self, command: str, verbose: bool = False) -> str:
         response = super().send_command(command, verbose)

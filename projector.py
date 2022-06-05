@@ -5,11 +5,11 @@ ETX = chr(0x03)
 
 
 class ProjectorSerial(SerialDevice):
-    def __init__(self) -> None:
+    def __init__(self, verbose: bool = False) -> None:
         serial_port = "/dev/serial0"
         baudrate = 9600
 
-        super().__init__(serial_port, baudrate)
+        super().__init__(serial_port, baudrate, verbose)
 
     def send_command(
         self, command: str, verbose: bool = False, device_id: str = "ZZ"
