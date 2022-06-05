@@ -1,12 +1,25 @@
-from serial import Serial
+from serialdevice import SerialDevice
 
 STX = chr(0x02)
 ETX = chr(0x03)
 
-if __name__ == "__main__":
-    with Serial("/dev/ttyAMA0", 9600, timeout=1) as ser:
-        ser.write((STX + "ADZZ" + ";" + "PON" + ETX).encode())
-        while not (response := ser.readline()):
-            pass
-        print(response)
-                
+
+class ProjectorSerial(SerialDevice):
+    def __init__(self) -> None:
+        serial_port = "/dev/serial0"
+        baudrate = 9600
+
+        super().__init__(serial_port, baudrate)
+
+    def send_command(self, command: str, verbose: bool = False, device_id: str = "ZZ"):
+        assert device_id in ["01", "02", "03", "04", "05", "06", "ZZ"]
+
+        full_command = f"\x02AD{device_id};{command}\x03"
+
+        return super().send_command(full_command, verbose)
+
+    def power_on(self):
+        self.send_command("PON")
+
+    def power_off(self):
+        self.send_command("POF")
