@@ -26,9 +26,9 @@ class SerialDevice:
             else:
                 response = ""
 
-            if self.verbose:
-                print(self.prefix, "resp:", response)
             if not response:
                 print(self.prefix, "No response")
+            elif self.verbose:
+                print(self.prefix, "resp:", response)
 
             return response
