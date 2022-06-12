@@ -13,17 +13,13 @@ class SerialDevice:
 
     def send_command(self, command: str) -> str:
 
-        with Serial(self.serial_port, self.baudrate, timeout=1) as s:
+        with Serial(self.serial_port, self.baudrate, timeout=3) as s:
             if self.verbose:
                 print(self.prefix, "send:", command)
 
             s.write(command.encode())
 
-            response_raw = None
-
-            count = 0
-            while count < 10 and not (response_raw := s.readline()):
-                pass
+            response_raw = s.readline()
 
             if response_raw:
                 response = response_raw.decode().strip()
