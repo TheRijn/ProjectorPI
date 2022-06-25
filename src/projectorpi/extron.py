@@ -2,7 +2,7 @@
 # | == carriage return
 from types import LambdaType
 from typing import Callable
-from serialdevice import SerialDevice
+from .serialdevice import SerialDevice
 
 # \x1b == ESC
 C: Callable[[str], str] = lambda command: f"\x1b{command}\r"

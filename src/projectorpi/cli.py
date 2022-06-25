@@ -1,12 +1,12 @@
 #! /usr/bin/env python3
 from argparse import ArgumentParser
-from projector import ProjectorSerial
-from extron import ExtronSerial
+from .projector import ProjectorSerial
+from .extron import ExtronSerial
 
 verbose = False
 
 
-if __name__ == "__main__":
+def main():
     parser = ArgumentParser(
         prog="projectorpi", description="A tool that turns the projector on and off."
     )
