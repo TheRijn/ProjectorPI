@@ -41,7 +41,7 @@ class ExtronSerial(SerialDevice):
     def send_command(self, command: str) -> str:
         response = super().send_command(command)
 
-        if response[0] == "E":
+        if response and response[0] == "E":
             print(response, self.ERRORS.get(response, "Unknown"))
 
         return response

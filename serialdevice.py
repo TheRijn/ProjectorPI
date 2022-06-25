@@ -1,4 +1,4 @@
-from doctest import REPORT_CDIFF
+import sys
 from serial import Serial
 
 
@@ -27,7 +27,7 @@ class SerialDevice:
                 response = ""
 
             if not response:
-                print(self.prefix, "No response")
+                print(self.prefix, "No response:", command, file=sys.stderr)
             elif self.verbose:
                 print(self.prefix, "resp:", response)
 
