@@ -1,4 +1,4 @@
-from serialdevice import SerialDevice
+from .serialdevice import SerialDevice
 
 STX = chr(0x02)
 ETX = chr(0x03)

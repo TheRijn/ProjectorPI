@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["Marijn Doeve <marijn@doeve.me>"]
 
+[tool.poetry.scripts]
+projectorpi = "projectorpi.cli:main"
+
 [tool.poetry.dependencies]
 python = "^3.9"
 pyserial = "^3.5"
