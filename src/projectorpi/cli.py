@@ -1,5 +1,7 @@
 #! /usr/bin/env python3
 from argparse import ArgumentParser
+from time import sleep
+
 from .projector import ProjectorSerial
 from .extron import ExtronSerial
 
@@ -34,6 +36,7 @@ def main():
     if args.input:
         proj.power_on()
         extr.wake()
+        sleep(0.2)
         extr.change_input(args.input)
 
     elif args.sleep:

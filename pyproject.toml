@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ProjectorPi"
-version = "0.1.0-1"
+version = "0.1.1"
 description = ""
 authors = ["Marijn Doeve <marijn@doeve.me>"]
 license = "GPL-3.0-or-later"
