@@ -36,7 +36,7 @@ def main():
     if args.input:
         proj.power_on()
         extr.wake()
-        sleep(0.2)
+        sleep(1)
         extr.change_input(args.input)
 
     elif args.sleep:
