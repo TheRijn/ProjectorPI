@@ -16,7 +16,7 @@ class ProjectorSerial(SerialDevice):
     def send_command(self, command: str, device_id: str = "ZZ") -> str:
         assert device_id in ["01", "02", "03", "04", "05", "06", "ZZ"]
 
-        full_command = f"\x02AD{device_id};{command}\x03"
+        full_command = f"{STX}AD{device_id};{command}{ETX}"
 
         return super().send_command(full_command)
 

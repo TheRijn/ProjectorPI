@@ -1,6 +1,4 @@
-# w == escape
-# | == carriage return
-from types import LambdaType
+import sys
 from typing import Callable
 from .serialdevice import SerialDevice
 
@@ -42,12 +40,14 @@ class ExtronSerial(SerialDevice):
         response = super().send_command(command)
 
         if response and response[0] == "E":
-            print(response, self.ERRORS.get(response, "Unknown"))
+            print(
+                f"{response}: {self.ERRORS.get(response, 'Unknown')}", file=sys.stderr
+            )
 
         return response
 
-    def check_sleep(self) -> None:
-        res = self.send_command(C("PSAV"))
+    def check_sleep(self) -> str:
+        return self.send_command(C("PSAV"))
 
     def sleep(self) -> None:
         self.send_command(C("1PSAV"))
@@ -59,7 +59,7 @@ class ExtronSerial(SerialDevice):
         self.send_command(f"{input}!")
 
     def is_sleeping(self) -> bool:
-        response = self.send_command(C("PSAV"))
+        response = self.check_sleep
 
         return bool(int(response))
 
