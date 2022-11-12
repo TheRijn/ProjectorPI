@@ -1,3 +1,5 @@
+[![Build Status](https://drone.marijndoeve.nl/api/badges/Marijn/ProjectorPi/status.svg)](https://drone.marijndoeve.nl/Marijn/ProjectorPi)
+
 # ProjectorPi
 
 Projector is a personal tool I user to control my _Panasonic PT-RW330_ projector and _Extron IN1604 DTP_ scalar over serial using a Raspberry Pi.
