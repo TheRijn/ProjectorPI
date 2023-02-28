@@ -12,7 +12,6 @@ class SerialDevice:
         self.prefix = ""
 
     def send_command(self, command: str) -> str:
-
         with Serial(self.serial_port, self.baudrate, timeout=3) as s:
             if self.verbose:
                 print(self.prefix, "send:", command)

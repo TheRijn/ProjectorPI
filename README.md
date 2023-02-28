@@ -6,7 +6,7 @@ Projector is a personal tool I user to control my _Panasonic PT-RW330_ projector
 
 ## Build wheels
 
-Building the project can be done using poetry. 
+Building the project can be done using poetry.
 
 ```shell
 $ poetry build
