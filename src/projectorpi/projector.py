@@ -25,3 +25,6 @@ class ProjectorSerial(SerialDevice):
 
     def power_off(self) -> None:
         self.send_command("POF")
+
+    def is_on(self) -> bool:
+        return self.send_command("QPW") == "001"

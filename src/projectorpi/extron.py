@@ -46,7 +46,7 @@ class ExtronSerial(SerialDevice):
 
         return response
 
-    def check_sleep(self) -> str:
+    def _check_sleep(self) -> str:
         return self.send_command(C("PSAV"))
 
     def sleep(self) -> None:
@@ -59,7 +59,7 @@ class ExtronSerial(SerialDevice):
         self.send_command(f"{input}!")
 
     def is_sleeping(self) -> bool:
-        response = self.check_sleep
+        response = self._check_sleep()
 
         return bool(int(response))
 
