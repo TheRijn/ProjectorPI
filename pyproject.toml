@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ProjectorPi"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 authors = ["Marijn Doeve <marijn@doeve.me>"]
 license = "GPL-3.0-or-later"
@@ -11,6 +11,7 @@ projectorpi = "projectorpi.cli:main"
 [tool.poetry.dependencies]
 python = "^3.9"
 pyserial = "^3.5"
+sentry-sdk = "^1.25.0"
 
 [tool.poetry.dev-dependencies]
 black = "*"

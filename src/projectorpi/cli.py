@@ -5,6 +5,16 @@ from time import sleep
 from .projector import ProjectorSerial
 from .extron import ExtronSerial
 
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://4a9c016c11074639a16778c78709e402@sentry.marijndoeve.nl/2",
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+)
+
 verbose = False
 
 
